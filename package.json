@@ -27,6 +27,8 @@
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8",
     "adonis-acl": "^1.1.1",
+    "argon2": "^0.25.1",
+    "bcrypt": "^3.0.6",
     "pg": "^7.12.1"
   },
   "autoload": {
