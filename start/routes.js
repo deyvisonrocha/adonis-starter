@@ -19,9 +19,9 @@ const Route = use('Route')
 Route.on('login').render('login')
 Route.post('login', 'UserController.login')
 Route.post('register', 'UserController.create')
-Route.get('logout', 'UserController.logout')
+Route.get('logout', 'UserController.logout').as('logout')
 Route.on('register').render('register')
 
 Route.group(() => {
-  Route.on('/').render('welcome')
+  Route.on('/').render('welcome').as('home')
 }).middleware('auth');
