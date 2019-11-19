@@ -25,7 +25,7 @@
               @each(submenu in menu.children)
                 <li class="nav-item">
                   <a href="{{ route(submenu.route) }}" class="nav-link">
-                    <i class="{{ menu.icon }} nav-icon"></i>
+                    <i class="{{ submenu.icon }} nav-icon"></i>
                     <p>{{ submenu.name }}</p>
                   </a>
                 </li>
@@ -35,7 +35,7 @@
         @else
           <li class="nav-item">
             <a href="{{ menu.route ? route(menu.route) : '#'  }}" class="nav-link {{ request.match(route(menu.route)) ? 'active' : '' }}">
-              <i class="nav-icon {{ menu.icon }}"></i>
+              <i class="{{ menu.icon }} nav-icon"></i>
               <p>{{ menu.name }}</p>
             </a>
           </li>
