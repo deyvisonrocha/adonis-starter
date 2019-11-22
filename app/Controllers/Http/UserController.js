@@ -3,25 +3,30 @@
 const User = use("App/Models/User")
 
 class UserController {
-  async login ({ auth, request, response }) {
-    const { email, password } = request.all()
-    await auth.attempt(email, password)
+  async index({ view, request }) {
+    let page = request.get().page || 1
 
-    return response.redirect('/')
+    const users = await User.query().paginate(page, 3)
+
+    return view.render('users.index', { users: users.toJSON(), sectionTitle: 'Users' })
   }
 
-  async create ({ request, response }) {
+  async show({ view, params }) {
+    const user = await User.find(params.id)
+
+    return view.render('users.show', { user: user, sectionTitle: 'User - Show' })
+  }
+
+  create({ view }) {
+    return view.render('users.create', { sectionTitle: 'User - Edit' })
+  }
+
+  async store ({ request, response }) {
     const data = request.only(['username', 'email', 'password'])
 
-    const user = await User.create(data)
+    await User.create(data)
 
-    return response.redirect('/login')
-  }
-
-  async logout ({ auth, response }) {
-    await auth.logout()
-
-    return response.redirect('/login')
+    return response.route('users.index', { sectionTitle: 'Users' })
   }
 }
 
