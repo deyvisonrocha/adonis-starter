@@ -24,7 +24,7 @@
             <ul class="nav nav-treeview">
               @each(submenu in menu.children)
                 <li class="nav-item">
-                  <a href="{{ route(submenu.route) }}" class="nav-link">
+                  <a href="{{ route(submenu.route) }}" class="nav-link {{ request.match(route(submenu.route)) ? 'active' : '' }}">
                     <i class="{{ submenu.icon }} nav-icon"></i>
                     <p>{{ submenu.name }}</p>
                   </a>
