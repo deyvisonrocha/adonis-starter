@@ -5,20 +5,30 @@ module.exports = [
     icon: 'fas fa-tachometer-alt'
   },
   {
-    name: 'Cadastros',
+    name: 'Users & Permissions',
     route: null,
-    icon: 'fas fa-adjust',
+    icon: 'fas fa-users-cog',
     children: [
       {
-        name: 'Usuários',
+        name: 'Roles',
         route: null,
+        icon: 'fas fa-user-tag',
+      },
+      {
+        name: 'Permissions',
+        route: null,
+        icon: 'fas fa-exclamation',
+      },
+      {
+        name: 'Users',
+        route: 'users.index',
         icon: 'fas fa-user',
       }
     ]
   },
 
   {
-    name: 'Sair',
+    name: 'Logout',
     route: 'logout',
     icon: 'fas fa-sign-out-alt'
   }
