@@ -1,0 +1,50 @@
+@layout('layouts.app')
+
+@section('content')
+<div class="card">
+  <div class="card-header">
+    <a class="btn btn-primary btn-sm" href="{{ route('users.create') }}">
+      <i class="fas fa-plus"></i>
+      Add
+    </a>
+  </div>
+  <div class="card-body p-0">
+    <table class="table table-striped users">
+      <thead>
+        <tr>
+          <th style="width: 1%">#</th>
+          <th style="width: 20%">Username</th>
+          <th style="width: 30%">Email</th>
+          <th style="width: 20%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @each(user in users.data)
+          <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td class="project-actions text-right">
+              <a class="btn btn-primary btn-sm" href="{{ route('users.show', { id: user.id }) }}">
+                <i class="fas fa-file"></i>
+              </a>
+              <a class="btn btn-info btn-sm" href="{{ route('users.edit', { id: user.id }) }}">
+                <i class="fas fa-pencil-alt"></i>
+              </a>
+              <a class="btn btn-danger btn-sm" href="{{ route('users.destroy', { id: user.id }) }}">
+                <i class="fas fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+        @endeach
+      </tbody>
+    </table>
+  </div>
+  <!-- /.card-body -->
+  <div class="card-footer clearfix">
+    @if(users.data.length)
+      @!component('layouts.partials.pagination', pagination = users, routeAs = route('users.index'), presenter = 'PaginationPresenter')
+    @endif
+  </div>
+</div>
+@endsection
