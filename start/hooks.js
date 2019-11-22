@@ -8,3 +8,11 @@ hooks.before.providersBooted(() => {
   View.global('NavMenu', NavMenu)
   View.global('AppName', Env.get('APP_NAME'))
 })
+
+hooks.after.providersBooted(() => {
+  const View = use('Adonis/Src/View')
+
+  View.global('range', (start, size) => {
+    return [...Array(size).keys()].map(i => i + start)
+  })
+})

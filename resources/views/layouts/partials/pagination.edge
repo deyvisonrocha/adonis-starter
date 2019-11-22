@@ -1,0 +1,7 @@
+<ul class="pagination pagination-sm m-0 ">
+  <li class="page-item"><a class="page-link" {{ isFirst(pagination) ? '' : 'href=' + routeAs + '?page=' + (pagination.page - 1) }}>Previous</a></li>
+  @each(page in range(1, pagination.lastPage))
+    <li class="page-item"><a class="page-link" {{ isCurrent(pagination, page) ? '' : 'href=' + routeAs + '?page=' + page }}>{{ page }}</a></li>
+  @endeach
+  <li class="page-item"><a class="page-link" {{ isLast(pagination) ? '' : 'href=' + routeAs + '?page=' + (pagination.page + 1) }}>Next</a></li>
+</ul>
