@@ -25,7 +25,5 @@ Route.get('logout', 'AuthController.logout').as('logout')
 
 Route.group(() => {
   Route.on('/').render('welcome').as('home')
-
   Route.resource('users', 'UserController')
-
 }).middleware('auth')
