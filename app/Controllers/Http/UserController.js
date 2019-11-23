@@ -18,7 +18,7 @@ class UserController {
   }
 
   create({ view }) {
-    return view.render('users.create', { sectionTitle: 'User - Edit' })
+    return view.render('users.create', { sectionTitle: 'User - Create' })
   }
 
   async store ({ request, response }) {
@@ -27,6 +27,12 @@ class UserController {
     await User.create(data)
 
     return response.route('users.index', { sectionTitle: 'Users' })
+  }
+
+  async edit({ view, params }) {
+    let user = await User.find(~~params.id)
+
+    return view.render('users.edit', { user: user.toJSON(), sectionTitle: 'User - Edit' })
   }
 }
 
