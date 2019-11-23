@@ -1,6 +1,6 @@
 const { hooks } = require('@adonisjs/ignitor')
 
-const NavMenu = require('./../resources/nav')
+const NavMenu = require('./nav')
 
 hooks.before.providersBooted(() => {
   const View = use('View')

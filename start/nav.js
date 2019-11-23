@@ -26,7 +26,6 @@ module.exports = [
       }
     ]
   },
-
   {
     name: 'Logout',
     route: 'logout',
