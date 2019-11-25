@@ -11,7 +11,7 @@ module.exports = [
     children: [
       {
         name: 'Roles',
-        route: null,
+        route: 'roles.index',
         icon: 'fas fa-user-tag',
       },
       {

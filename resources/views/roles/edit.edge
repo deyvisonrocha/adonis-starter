@@ -1,0 +1,18 @@
+@layout('layouts.app')
+
+@section('content')
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">{{ sectionTitle || ''}}</h3>
+  </div>
+  <form action="{{ route('roles.update', { id: role.id}) }}" class="form-horizontal" method="put">
+    {{ csrfField() }}
+    @include('roles.form')
+    <!-- /.card-body -->
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="{{ route('roles.index') }}" class="btn btn-default">Back</a>
+    </div>
+  </form>
+</div>
+@endsection
