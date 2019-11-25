@@ -1,0 +1,28 @@
+@if(flashMessage('errorMessage'))
+<div class="alert alert-danger alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  <h5><i class="icon fas fa-ban"></i> Erro!</h5>
+  {{ flashMessage('errorMessage') }}
+</div>
+@endif
+@if(flashMessage('infoMessage'))
+<div class="alert alert-info alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  <h5><i class="icon fas fa-info"></i> Info!</h5>
+  {{ flashMessage('infoMessage') }}
+</div>
+@endif
+@if(flashMessage('warningMessage'))
+<div class="alert alert-warning alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  <h5><i class="icon fas fa-exclamation-triangle"></i> Warning!</h5>
+  {{ flashMessage('warningMessage') }}
+</div>
+@endif
+@if(flashMessage('successMessage'))
+<div class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+  <h5><i class="icon fas fa-check"></i> Success!</h5>
+  {{ flashMessage('successMessage') }}
+</div>
+@endif
