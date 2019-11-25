@@ -5,7 +5,7 @@
   <div class="card-header">
     <h3 class="card-title">{{ sectionTitle || ''}}</h3>
   </div>
-  <form action="{{ route('users.update', { id: user.id}) }}" class="form-horizontal" method="put">
+  <form action="{{ route('users.update', { id: user.id}) }}?_method=PUT" class="form-horizontal" method="POST">
     {{ csrfField() }}
     @include('users.form')
     <!-- /.card-body -->
